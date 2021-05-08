@@ -30,4 +30,16 @@ describe('chain Locators', function(){
 			console.log(text2);
 		})
 	})
+	
+	it('change operator', function(){
+		browser.refresh();
+		element(by.model("first")).sendKeys("8");
+		element(by.model("second")).sendKeys("2");
+		element(by.model("operator")).element(by.css("option:nth-child(2)")).click();
+		element(by.id("gobutton")).click();
+		element(by.repeater("result in memory")).element(by.css("td:nth-child(3)")).getText().then(function(text2){
+			console.log('\n');
+			console.log(text2);
+		})
+	})
 })
